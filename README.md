@@ -1,4 +1,3 @@
-# React Native App
 Create react native app to my customer July Ribeiro.
 
 .
