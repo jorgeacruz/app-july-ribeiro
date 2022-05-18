@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, StatusBar, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, StatusBar, TouchableOpacity, TextInput } from 'react-native';
 import { useFonts,Comfortaa_400Regular} from '@expo-google-fonts/comfortaa';
 import AppLoading from 'expo-app-loading';
 
 
 const { height, width } = Dimensions.get('screen');
 
-export default function Home() {
+export default function App() {
 
   const [fontsLoaded] = useFonts({ Comfortaa_400Regular });
 
@@ -17,20 +17,20 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <StatusBar hidden={true}/>
-      <Image source={require('./src/images/july-ribeiro.png')} style={styles.imgBG}/>
-
+    
       <View style={styles.Titulo}>
-        <Text style={styles.textTitulo}>July Ribeiro</Text>
+        <Text style={styles.textTitulo}>Login</Text>
       </View>
 
-      <View style={styles.areaLogin}>
-        <TouchableOpacity style={styles.btLogin}>
-          <Text style={{color:'#fff',fontFamily: 'Comfortaa_400Regular'}}>@ Sign with E-mail</Text>
-        </TouchableOpacity>
-        
+      <View style={styles.areaFormulario}>
+        <Text style={{color:'#fff', fontSize:40}}>Message sent successfuly</Text>
+       
+      <View style={{alignSelf:'flex-start', marginTop:130}}>
         <TouchableOpacity style={styles.btCreateAccount}>
-          <Text style={styles.textBtCreateaccount}>Create Account Now</Text>
+          <Text style={styles.textBtCreateaccount}>Back to home</Text>
         </TouchableOpacity>
+      </View>
+
 
 
       </View>
@@ -49,43 +49,55 @@ const styles = StyleSheet.create({
   },
   imgBG: {
     height:height,
-    width:width,
-    opacity:0.7
+    width:width
   },
   Titulo: {
     position:'absolute',
     top:30,
+    width:300
   },
   textTitulo:{
     color:'#fff',
     fontFamily: 'Comfortaa_400Regular',
-    fontSize:50
+    fontSize:20
 
   },
-  areaLogin: {
+  areaFormulario: {
     position:'absolute',
-    bottom:20,
-    alignItems:'center'
-  },
-  btLogin: {
+    bottom:70,
     alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:'#000',
-    width:260,
-    padding:11,
-    marginBottom:15,
-    borderRadius:50
   },
+  
   btCreateAccount: {
+    backgroundColor:'#fff',
+    borderRadius:20,
     justifyContent:'center',
     alignItems:'center',
-    width:300,
+    padding:6,
+    width:140,
+    marginBottom:120
+    
   },
-  textBtCreateaccount:{
-    color:'#fff',
+  btLostpassword: {
+    borderRadius:20,
+    justifyContent:'center',
+    alignItems:'center',
+    padding:6,
+    width:140,
+  },
+  textLostpassword:{
     fontWeight:'500',
     fontFamily: 'Comfortaa_400Regular',
-    fontSize:18
+    fontSize:14,
+    color:'#fff',
+    fontWeight:'bold'
     
+  },
+  textoImput: {
+    borderBottomWidth:1,
+    borderBottomColor:'#fff',
+    width:300, 
+    fontFamily:'Comfortaa_400Regular', 
+    marginBottom:40
   }
 });
