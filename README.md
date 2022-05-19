@@ -1,5 +1,5 @@
 # Fashion Store to July Ribeiro
-## This app designed to my dear friend July Ribeiro. </br>An simples e-commerce for her sell your products.
+### This app designed to my dear friend July Ribeiro. An simples e-commerce for her sell your products.
 </br>
 
 # Libraries
@@ -7,7 +7,8 @@
 - [React Stack Navigation](https://reactnavigation.org/docs/native-stack-navigator/)
 - [React Swiper](https://github.com/leecade/react-native-swiper)
 - [Expo Google Fonts](https://docs.expo.dev/guides/using-custom-fonts/)
-</br>
+</br></br>
+
 # Figma Project
 https://bityli.com/wJCjEG
 
