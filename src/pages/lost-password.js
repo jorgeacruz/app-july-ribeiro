@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, StatusBar, TouchableOpacity, TextInput } from 'react-native';
 import { useFonts,Comfortaa_400Regular} from '@expo-google-fonts/comfortaa';
+import { useNavigation  } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 
 
 const { height, width } = Dimensions.get('screen');
 
-export default function App() {
+export default function LostPassword() {
+
+  const navigation = useNavigation();
 
   const [fontsLoaded] = useFonts({ Comfortaa_400Regular });
 
@@ -31,8 +34,8 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-        <TouchableOpacity style={styles.btLostpassword}>
-          <Text style={styles.textLostpassword}>@JulyRibeiro</Text>
+        <TouchableOpacity style={styles.btLostpassword} onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.textLostpassword}>Back to home</Text>
         </TouchableOpacity>
 
 
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
     borderBottomColor:'#fff',
     width:300, 
     fontFamily:'Comfortaa_400Regular', 
-    marginBottom:40
+    marginBottom:40,
+    color:'#fff',
   }
 });

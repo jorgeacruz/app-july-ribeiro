@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, StatusBar, TouchableOpacity, TextInput } from 'react-native';
 import { useFonts,Comfortaa_400Regular} from '@expo-google-fonts/comfortaa';
+import { useNavigation } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 
 
 const { height, width } = Dimensions.get('screen');
 
-export default function App() {
+export default function CreateAccont() {
+
+  const navigation = useNavigation();
 
   const [fontsLoaded] = useFonts({ Comfortaa_400Regular });
 
@@ -17,17 +20,19 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar hidden={true}/>
-      <Image source={require('./src/images/july-ribeiro2.png')} style={styles.imgBG}/>
+      <Image source={require('../images/july-ribeiro2.png')} style={styles.imgBG}/>
 
       <View style={styles.Titulo}>
         <Text style={styles.textTitulo}>Create Account</Text>
       </View>
 
       <View style={styles.areaFormulario}>
+        <TextInput onChangeText={''} autoComplete={'password'} style={styles.textoImput} placeholder="Type your name" placeholderTextColor="#fff" />
         <TextInput style={styles.textoImput} placeholder="Type your email" placeholderTextColor="#fff" />
+        <TextInput style={styles.textoImput} placeholder="Type your password" placeholderTextColor="#fff" />
       
       <View style={{alignSelf:'flex-end'}}>
-        <TouchableOpacity style={styles.btCreateAccount}>
+        <TouchableOpacity style={styles.btCreateAccount} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.textBtCreateaccount}>Create Account</Text>
         </TouchableOpacity>  
       </View>
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
     borderBottomColor:'#fff',
     width:300, 
     fontFamily:'Comfortaa_400Regular', 
+    color:'#fff',
     marginBottom:40
   }
 });

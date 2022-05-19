@@ -6,7 +6,7 @@ import AppLoading from 'expo-app-loading';
 
 const { height, width } = Dimensions.get('screen');
 
-export default function App() {
+export default function MessageSucess() {
 
   const [fontsLoaded] = useFonts({ Comfortaa_400Regular });
 

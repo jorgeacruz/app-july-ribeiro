@@ -1,91 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, StatusBar, TouchableOpacity } from 'react-native';
-import { useFonts,Comfortaa_400Regular} from '@expo-google-fonts/comfortaa';
-import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import Home from './src/pages';
+import Login from './src/pages/login';
+import LostPassword from './src/pages/lost-password';
+import CreateAccont from './src/pages/create-account';
 
-const { height, width } = Dimensions.get('screen');
+const Stack = createNativeStackNavigator();
 
-export default function Home() {
+export default function App() {
+ return (
+   <NavigationContainer>
+     <Stack.Navigator>
+       
+       <Stack.Screen name='Home' component={Home} options={{headerShown:false}}/>
+       <Stack.Screen name='Login' component={Login}  options={{headerShown:false}}/>
+       <Stack.Screen name='LostPassword' component={LostPassword}  options={{headerShown:false}}/>
+       <Stack.Screen name='CreateAccont' component={CreateAccont}  options={{headerShown:false}}/>
+       
 
-  const [fontsLoaded] = useFonts({ Comfortaa_400Regular });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  } else {
-
-  return (
-    <View style={styles.container}>
-      <StatusBar hidden={true}/>
-      <Image source={require('./src/images/july-ribeiro.png')} style={styles.imgBG}/>
-
-      <View style={styles.Titulo}>
-        <Text style={styles.textTitulo}>July Ribeiro</Text>
-      </View>
-
-      <View style={styles.areaLogin}>
-        <TouchableOpacity style={styles.btLogin}>
-          <Text style={{color:'#fff',fontFamily: 'Comfortaa_400Regular'}}>@ Sign with E-mail</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.btCreateAccount}>
-          <Text style={styles.textBtCreateaccount}>Create Account Now</Text>
-        </TouchableOpacity>
-
-
-      </View>
-    
-    </View>
+     </Stack.Navigator>
+   </NavigationContainer>
   );
-  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imgBG: {
-    height:height,
-    width:width,
-    opacity:0.7
-  },
-  Titulo: {
-    position:'absolute',
-    top:30,
-  },
-  textTitulo:{
-    color:'#fff',
-    fontFamily: 'Comfortaa_400Regular',
-    fontSize:50
-
-  },
-  areaLogin: {
-    position:'absolute',
-    bottom:20,
-    alignItems:'center'
-  },
-  btLogin: {
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:'#000',
-    width:260,
-    padding:11,
-    marginBottom:15,
-    borderRadius:50
-  },
-  btCreateAccount: {
-    justifyContent:'center',
-    alignItems:'center',
-    width:300,
-  },
-  textBtCreateaccount:{
-    color:'#fff',
-    fontWeight:'500',
-    fontFamily: 'Comfortaa_400Regular',
-    fontSize:18
-    
-  }
-});

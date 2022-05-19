@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, StatusBar, TouchableOpacity, TextInput } from 'react-native';
 import { useFonts,Comfortaa_400Regular} from '@expo-google-fonts/comfortaa';
+import { useNavigation } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 
 
 const { height, width } = Dimensions.get('screen');
 
-export default function App() {
+export default function Login() {
+
+  const navigation = useNavigation();
 
   const [fontsLoaded] = useFonts({ Comfortaa_400Regular });
 
@@ -17,7 +20,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar hidden={true}/>
-      <Image source={require('./src/images/july-ribeiro1.png')} style={styles.imgBG}/>
+      <Image source={require('../images/july-ribeiro1.png')} style={styles.imgBG}/>
 
       <View style={styles.Titulo}>
         <Text style={styles.textTitulo}>Login</Text>
@@ -33,7 +36,7 @@ export default function App() {
         </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.btLostpassword}>
+        <TouchableOpacity style={styles.btLostpassword} onPress={() => navigation.navigate('LostPassword')}>
           <Text style={styles.textLostpassword}>I lost my password</Text>
         </TouchableOpacity>
 
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     padding:6,
-    width:140,
+    width:200,
   },
   textLostpassword:{
     fontWeight:'500',
@@ -103,6 +106,7 @@ const styles = StyleSheet.create({
     borderBottomColor:'#fff',
     width:300, 
     fontFamily:'Comfortaa_400Regular', 
-    marginBottom:40
+    marginBottom:40,
+    color:'#fff',
   }
 });
